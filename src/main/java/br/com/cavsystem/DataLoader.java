@@ -8,12 +8,10 @@ import org.springframework.stereotype.Component;
 import br.com.cavsystem.service.InicializaService;
 
 @Component
-public class DataLoader implements ApplicationRunner  {
+public class DataLoader implements ApplicationRunner {
 
-	
 	@Autowired
 	private InicializaService service;
-	
 	
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception {
