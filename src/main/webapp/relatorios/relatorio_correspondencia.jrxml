@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_correspondencia" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="data" class="java.lang.String"/>
+	<parameter name="usuario" class="java.lang.String"/>
+	<parameter name="condominio" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Rodrigo\\Desktop\\cav\\sistema\\src\\main\\webapp\\relatorios\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="correspondeciaPara.nome" class="java.lang.String"/>
+	<field name="correspondeciaPara.bloco" class="java.lang.String"/>
+	<field name="remetente" class="java.lang.String"/>
+	<field name="tipoNome" class="java.lang.String"/>
+	<field name="recebimentoFormatado" class="java.lang.String"/>
+	<field name="liberacaoFormatado" class="java.lang.String"/>
+	<field name="liberadoPara" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="96">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="67" backcolor="#FBFBFB"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="11" y="10" width="46" height="48"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="3" y="10" width="799" height="48" forecolor="#000000"/>
+				<textElement textAlignment="Center">
+					<font size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correspondêcias]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="71" width="267" height="21"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{condominio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="575" y="71" width="224" height="21"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Gerado por: "+$P{usuario}+" - "+ $P{data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25">
+			<staticText>
+				<reportElement x="3" y="5" width="129" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Residência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="5" width="135" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remetente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="5" width="136" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="403" y="5" width="143" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recebido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="546" y="5" width="123" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Liberado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="669" y="5" width="130" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Liberado para]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26">
+			<textField>
+				<reportElement x="3" y="6" width="129" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{correspondeciaPara.bloco}+" - "+$F{correspondeciaPara.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="6" width="135" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{remetente} == null ? "Não informado" : $F{remetente}
+]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="6" width="136" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tipoNome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="6" width="143" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{recebimentoFormatado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="546" y="6" width="123" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{liberacaoFormatado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="669" y="6" width="136" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{liberadoPara} != null ? $F{liberadoPara} : "----" ]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="29">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="28" backcolor="#FBFBFB"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="779" y="5" width="23" height="17"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="741" y="5" width="38" height="17"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Página: ]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

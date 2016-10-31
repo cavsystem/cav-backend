@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="gerarOcorrencia" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="usuario" class="java.lang.String"/>
+	<parameter name="condominio" class="java.lang.String"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="dataOcorrencia" class="java.lang.String"/>
+	<parameter name="usuarioCriador" class="java.lang.String"/>
+	<parameter name="dataCadastro" class="java.lang.String"/>
+	<parameter name="data" class="java.lang.String"/>
+	<parameter name="descricao" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="98">
+			<rectangle>
+				<reportElement x="0" y="0" width="554" height="67" backcolor="#FBFBFB"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="11" y="12" width="46" height="48"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="2" y="9" width="552" height="48" forecolor="#000000"/>
+				<textElement textAlignment="Center">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ocorrência]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="71" width="181" height="21"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{condominio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="73" width="274" height="17"/>
+				<textElement textAlignment="Right" markup="html">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Gerado :</b> "+$P{usuario}+" - "+ $P{data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="77">
+			<textField>
+				<reportElement mode="Opaque" x="91" y="1" width="463" height="17" backcolor="#FAFAFA"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[ $P{titulo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="1" width="86" height="17" backcolor="#E6E5E5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Título:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="19" width="86" height="17" backcolor="#E6E5E5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Ocorrência:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="37" width="86" height="17" backcolor="#E6E5E5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Criado por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="90" y="37" width="464" height="17" backcolor="#FAFAFA"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[ $P{usuarioCriador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="90" y="19" width="464" height="17" backcolor="#FAFAFA"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[ $P{dataOcorrencia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="55" width="86" height="17" backcolor="#E6E5E5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Cadastro:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="89" y="55" width="464" height="17" backcolor="#FAFAFA"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[ $P{dataCadastro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="132">
+			<textField>
+				<reportElement x="2" y="35" width="553" height="97"/>
+				<textElement markup="html"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{descricao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="5" width="552" height="30" backcolor="#E6E5E5"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28">
+			<rectangle>
+				<reportElement x="0" y="0" width="554" height="28" backcolor="#FBFBFB"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="527" y="5" width="23" height="17"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="489" y="5" width="38" height="17"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Página: ]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

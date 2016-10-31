@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_visitas" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="856"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="data" class="java.lang.String"/>
+	<parameter name="usuario" class="java.lang.String"/>
+	<parameter name="condominio" class="java.lang.String"/>
+	<field name="visitante.nome" class="java.lang.String"/>
+	<field name="cartao.numero" class="java.lang.String"/>
+	<field name="apartamento.nome" class="java.lang.String"/>
+	<field name="dataHoraEntrada" class="java.util.Date"/>
+	<field name="dataInicioForamtada" class="java.lang.String"/>
+	<field name="veiculo.veiculoConcat" class="java.lang.String"/>
+	<field name="apartamento.bloco" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="102">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="67" backcolor="#FBFBFB"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="11" y="12" width="46" height="48"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="3" y="12" width="799" height="48" forecolor="#000000"/>
+				<textElement textAlignment="Center">
+					<font size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Visitas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="74" width="280" height="21"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{condominio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="527" y="74" width="274" height="17"/>
+				<textElement textAlignment="Right" markup="html">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Gerado :</b> "+$P{usuario}+" - "+ $P{data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25">
+			<line>
+				<reportElement x="-2" y="22" width="803" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement x="404" y="3" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[ENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="267" height="20"/>
+				<textElement/>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="2" width="102" height="21"/>
+				<textElement/>
+				<text><![CDATA[SAÍDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="716" y="2" width="86" height="20"/>
+				<textElement/>
+				<text><![CDATA[VISITOU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="606" y="2" width="110" height="20"/>
+				<textElement/>
+				<text><![CDATA[CARTÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="2" width="137" height="20"/>
+				<textElement/>
+				<text><![CDATA[VEÍCULO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23">
+			<textField>
+				<reportElement x="606" y="0" width="110" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cartao.numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="716" y="0" width="86" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{apartamento.bloco}+"-"+$F{apartamento.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="267" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{visitante.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{dataHoraEntrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="0" width="137" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[
+
+$F{veiculo.veiculoConcat} == null ? "Sem veículo" : $F{veiculo.veiculoConcat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="504" y="0" width="102" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dataInicioForamtada}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28">
+			<rectangle>
+				<reportElement x="1" y="0" width="801" height="28" backcolor="#FBFBFB"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="772" y="5" width="23" height="17"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="734" y="5" width="38" height="17"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Página: ]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
